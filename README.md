@@ -24,25 +24,6 @@ docker-compose up -d
 
 After starting the containers, PHP-FPM status will be available at [http://localhost:8080/status](http://localhost:8080/status)
 
-## Configuration
-
-### docker-compose.yml
-- **nginx**: Alpine image with nginx.conf configuration
-- **php-fpm**: PHP 8.4.7 FPM Alpine with php-fpm.conf configuration
-
-### nginx.conf
-The key line causing the issue:
-
-```
-nginx fastcgi_keep_conn on;
-```
-
-
-### php-fpm.conf
-Configuration with:
-- Process manager: static
-- Maximum children processes: 20
-- Status path: `/status`
 
 ## Reproducing the Bug
 
